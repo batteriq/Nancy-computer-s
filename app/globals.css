@@ -95,3 +95,151 @@ h6 {
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* ---- Hero animated SVG scene ---- */
+
+/* Floating tech silhouettes: each drifts at its own speed/direction */
+@keyframes drift-x {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(60px) translateY(-14px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes drift-y {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(70px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes drift-diagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, 40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.18;
+  }
+}
+
+.float-x {
+  animation: drift-x 18s ease-in-out infinite;
+}
+.float-y {
+  animation: drift-y 22s ease-in-out infinite;
+}
+.float-diagonal {
+  animation: drift-diagonal 26s ease-in-out infinite;
+}
+.pulse-scale {
+  animation: pulse-scale 9s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Electric blue scan line sweeping top to bottom every 4s */
+@keyframes scanline {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+}
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 212, 255, 0.12),
+    transparent
+  );
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Center radial glow */
+.radial-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(0, 212, 255, 0.18),
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated nav-link underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  width: 100%;
+}
+
+/* Skeleton shimmer for loading product cards */
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+.skeleton {
+  background: linear-gradient(
+    100deg,
+    #111831 30%,
+    #1a2440 50%,
+    #111831 70%
+  );
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}

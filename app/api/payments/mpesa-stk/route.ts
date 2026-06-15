@@ -16,7 +16,7 @@ function simulatedResponse(msisdn: string, note?: string) {
     success: true,
     simulated: true,
     checkoutRequestId: "SIM-" + Date.now(),
-    customerMessage: `STK Push sent to ${msisdn} — check your phone to authorise payment.`,
+    customerMessage: `STK Push sent to ${msisdn} - check your phone to authorise payment.`,
     note: note ?? "Simulated sandbox payment (Daraja unavailable).",
   });
 }
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
         customerMessage: data.CustomerMessage,
       });
     } catch (darajaErr) {
-      // OAuth/network failure (e.g. invalid sandbox keys) — simulate in sandbox.
+      // OAuth/network failure (e.g. invalid sandbox keys) - simulate in sandbox.
       if (isSandbox()) {
         const detail =
           darajaErr instanceof Error ? darajaErr.message : "Daraja error";

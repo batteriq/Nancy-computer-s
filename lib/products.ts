@@ -17,7 +17,7 @@ export const products: Product[] = [
     price: 10000,
     specs: "Core i5, 4GB RAM, 500GB HDD",
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600",
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&auto=format",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const products: Product[] = [
     price: 25500,
     specs: "Core i7, 16GB RAM, 256GB SSD",
     image:
-      "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600",
+      "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=600&auto=format",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const products: Product[] = [
     price: 18000,
     specs: "Core i5, 8GB RAM, 256GB SSD",
     image:
-      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600",
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600&auto=format",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ export const products: Product[] = [
     price: 8000,
     specs: "1920x1080, 60Hz, HDMI+VGA",
     image:
-      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600",
+      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&auto=format",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export const products: Product[] = [
     price: 14000,
     specs: "2560x1440, 75Hz, IPS Panel",
     image:
-      "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=600",
+      "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=600&auto=format",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ export const products: Product[] = [
     price: 32000,
     specs: "Core i3, 4GB RAM, 1TB HDD",
     image:
-      "https://images.unsplash.com/photo-1593640408182-31c228f40ff4?w=600",
+      "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&auto=format",
   },
   {
     id: 7,
@@ -77,7 +77,7 @@ export const products: Product[] = [
     price: 1800,
     specs: "2.4GHz Wireless, Long Battery Life",
     image:
-      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600",
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format",
   },
   {
     id: 8,
@@ -87,7 +87,7 @@ export const products: Product[] = [
     price: 1200,
     specs: "USB 3.0, Plug & Play, LED Indicator",
     image:
-      "https://images.unsplash.com/photo-1601523572865-75f2fdbae2c1?w=600",
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format",
   },
   {
     id: 9,
@@ -97,7 +97,7 @@ export const products: Product[] = [
     price: 2500,
     specs: "Water-resistant, USB charging port",
     image:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600",
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ export const products: Product[] = [
     price: 10000,
     specs: "4GB RAM, 500GB HDD, Compact Design",
     image:
-      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=600",
+      "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=600&auto=format",
   },
   {
     id: 11,
@@ -117,7 +117,7 @@ export const products: Product[] = [
     price: 3500,
     specs: "Surround Sound, Noise-cancelling mic",
     image:
-      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&auto=format",
   },
   {
     id: 12,
@@ -127,7 +127,7 @@ export const products: Product[] = [
     price: 38000,
     specs: 'Core i5, 8GB RAM, 1TB HDD, 23.8"',
     image:
-      "https://images.unsplash.com/photo-1593640408182-31c228f40ff4?w=600",
+      "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=600&auto=format",
   },
 ];
 

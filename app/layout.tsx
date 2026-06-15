@@ -23,7 +23,7 @@ const rajdhani = Rajdhani({
 export const metadata: Metadata = {
   title: "Firelite Computers | Nairobi's #1 Gadget & Electronics Destination",
   description:
-    "Firelite Computers — laptops, monitors, desktops and accessories at wholesale prices. Nationwide delivery across Kenya. Budget laptops from KES 10,000.",
+    "Firelite Computers - laptops, monitors, desktops and accessories at wholesale prices. Nationwide delivery across Kenya. Budget laptops from KES 10,000.",
   keywords: [
     "laptops Nairobi",
     "cheap laptops Kenya",

@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import ProductCard from "@/components/ProductCard";
-import { SectionHeading, FadeIn } from "@/components/Section";
+import { SectionHeading, FadeIn, WaveDivider } from "@/components/Section";
 import { products } from "@/lib/products";
 import Link from "next/link";
 import {
@@ -71,8 +71,8 @@ export default function HomePage() {
           subtitle="Handpicked gadgets at prices that move fast."
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCard key={p.id} product={p} />
+          {featured.map((p, i) => (
+            <ProductCard key={p.id} product={p} index={i} />
           ))}
         </div>
         <div className="mt-12 text-center">
@@ -83,7 +83,8 @@ export default function HomePage() {
       </section>
 
       {/* Why choose us */}
-      <section className="border-y border-white/10 bg-navy-light py-20">
+      <WaveDivider fill="#111831" />
+      <section className="bg-navy-light py-20">
         <div className="container-x">
           <SectionHeading
             eyebrow="Why Firelite"
@@ -108,6 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <WaveDivider fill="#0A0F1E" />
       {/* Testimonials */}
       <section className="container-x py-20">
         <SectionHeading
@@ -136,8 +138,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <WaveDivider fill="#111831" />
       {/* Location */}
-      <section className="border-t border-white/10 bg-navy-light py-20">
+      <section className="bg-navy-light py-20">
         <div className="container-x grid gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading eyebrow="Find Us" title="Visit Our Store" />

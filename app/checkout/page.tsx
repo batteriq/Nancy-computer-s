@@ -75,7 +75,7 @@ export default function CheckoutPage() {
               >
                 <span>
                   {item.name}{" "}
-                  <span className="text-white/40">× {item.qty}</span>
+                  <span className="text-white/40">x {item.qty}</span>
                 </span>
                 <span className="text-white">
                   {formatKES(item.price * item.qty)}

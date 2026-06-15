@@ -83,7 +83,7 @@ export default function MpesaPayment({
         setStatus("polling");
         setMessage(
           data.customerMessage ||
-            `STK Push sent to ${phone} — check your phone`
+            `STK Push sent to ${phone} - check your phone`
         );
         setCountdown(5);
         timerRef.current = setInterval(() => {

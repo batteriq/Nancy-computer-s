@@ -32,7 +32,7 @@ export default function ContactPage() {
           Contact <span className="gradient-text">Firelite</span>
         </h1>
         <p className="mt-3 text-white/60">
-          Visit the shop, call us, or drop a message — we reply fast.
+          Visit the shop, call us, or drop a message - we reply fast.
         </p>
       </div>
 

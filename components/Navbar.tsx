@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import Logo from "./Logo";
 import { useCart } from "@/lib/cart-context";
@@ -16,11 +16,25 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const { count, open: openCart } = useCart();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-navy/80 backdrop-blur-lg">
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-electric/20 bg-navy/70 shadow-glow backdrop-blur-xl"
+          : "border-b border-white/10 bg-navy/40 backdrop-blur-md"
+      }`}
+    >
       <nav className="container-x flex h-16 items-center justify-between">
         <Logo />
 
@@ -31,7 +45,8 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`font-heading text-sm font-semibold uppercase tracking-wide transition ${
+                data-active={active}
+                className={`nav-link font-heading text-sm font-semibold uppercase tracking-wide transition ${
                   active ? "text-electric" : "text-white/80 hover:text-electric"
                 }`}
               >

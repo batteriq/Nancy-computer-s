@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Zap, MapPin } from "lucide-react";
+import TechBackground from "./TechBackground";
 
 const phrases = [
   "Power Your World with Firelite",
@@ -41,8 +42,8 @@ export default function Hero() {
   }, [text, deleting, phraseIndex]);
 
   return (
-    <section className="hero-glow relative overflow-hidden">
-      <div className="grid-overlay absolute inset-0 opacity-60" />
+    <section className="relative overflow-hidden bg-navy">
+      <TechBackground />
       <div className="container-x relative z-10 flex min-h-[88vh] flex-col items-center justify-center py-20 text-center">
         <motion.span
           initial={{ opacity: 0, y: 20 }}

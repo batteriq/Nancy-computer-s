@@ -1,6 +1,6 @@
 // Simple in-memory order/payment store for the prototype.
 // NOTE: resets on server restart and is not shared across serverless
-// instances — fine for a demo, replace with a DB for production.
+// instances - fine for a demo, replace with a DB for production.
 
 export type PaymentRecord = {
   checkoutRequestId: string;

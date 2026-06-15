@@ -11,7 +11,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   if (!product) return { title: "Product not found | Firelite Computers" };
   return {
     title: `${product.name} | Firelite Computers`,
-    description: `${product.name} — ${product.specs}. Buy now at Firelite Computers, Nairobi.`,
+    description: `${product.name} - ${product.specs}. Buy now at Firelite Computers, Nairobi.`,
   };
 }
 

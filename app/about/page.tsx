@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { SectionHeading, FadeIn } from "@/components/Section";
-import { BadgeCheck, Truck, Zap, Users } from "lucide-react";
+import { BadgeCheck, Truck, Zap, Users, User, Camera } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Firelite Computers",
   description:
-    "The story of Firelite Computers — Nairobi's trusted destination for affordable, genuine laptops, monitors and gadgets.",
+    "The story of Firelite Computers - Nairobi's trusted destination for affordable, genuine laptops, monitors and gadgets.",
 };
 
 const values = [
@@ -27,10 +27,10 @@ const values = [
 ];
 
 const team = [
-  { name: "David Mwangi", role: "Founder & CEO", emoji: "👨🏾‍💼" },
-  { name: "Aisha Hassan", role: "Sales Manager", emoji: "👩🏾‍💼" },
-  { name: "Kevin Ouma", role: "Technical Lead", emoji: "👨🏾‍🔧" },
-  { name: "Grace Njeri", role: "Customer Care", emoji: "👩🏾‍💻" },
+  { name: "David Mwangi", role: "Founder & CEO" },
+  { name: "Aisha Hassan", role: "Sales Manager" },
+  { name: "Kevin Ouma", role: "Technical Lead" },
+  { name: "Grace Njeri", role: "Customer Care" },
 ];
 
 export default function AboutPage() {
@@ -54,7 +54,7 @@ export default function AboutPage() {
           </p>
           <p className="mt-4 leading-relaxed text-white/60">
             Today, we ship laptops, monitors, desktops and accessories to every
-            corner of the country — backed by honest advice, fair prices and
+            corner of the country - backed by honest advice, fair prices and
             the hustle that built us. When you buy from Firelite, you&apos;re
             buying from people who genuinely care about getting you the right
             machine for your budget.
@@ -67,8 +67,8 @@ export default function AboutPage() {
             (label) => (
               <FadeIn key={label}>
                 <div className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-dashed border-white/15 bg-navy-light text-center text-sm text-white/40">
-                  <div>
-                    <div className="mb-2 text-3xl">📸</div>
+                  <div className="flex flex-col items-center">
+                    <Camera size={32} className="mb-2 text-electric/60" />
                     {label}
                   </div>
                 </div>
@@ -112,8 +112,8 @@ export default function AboutPage() {
             <FadeIn key={member.name} delay={i * 0.08}>
               <div className="rounded-2xl border border-white/10 bg-navy-light p-6 text-center transition hover:border-electric/40">
                 <div className="mb-3 flex justify-center">
-                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-electric/10 text-4xl">
-                    {member.emoji}
+                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-electric/10 text-electric">
+                    <User size={36} />
                   </span>
                 </div>
                 <h3 className="font-heading text-lg font-bold text-white">

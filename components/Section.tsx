@@ -27,6 +27,34 @@ export function SectionHeading({
   );
 }
 
+// Thin SVG wave divider so sections flow into each other without harsh borders.
+// `fill` should match the colour of the section that follows below it.
+export function WaveDivider({
+  fill = "#0A0F1E",
+  className = "",
+}: {
+  fill?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`pointer-events-none -mt-px w-full leading-[0] ${className}`}
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 1440 60"
+        preserveAspectRatio="none"
+        className="block h-[44px] w-full"
+      >
+        <path
+          d="M0 30 C 240 60 480 0 720 24 C 960 48 1200 12 1440 36 L 1440 60 L 0 60 Z"
+          fill={fill}
+        />
+      </svg>
+    </div>
+  );
+}
+
 export function FadeIn({
   children,
   delay = 0,

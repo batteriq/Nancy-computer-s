@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ProductCard from "@/components/ProductCard";
+import ProductCardSkeleton from "@/components/ProductCardSkeleton";
 import { products } from "@/lib/products";
 
 const tabs = [
@@ -15,6 +16,13 @@ const tabs = [
 
 export default function ShopPage() {
   const [active, setActive] = useState<string>("all");
+  const [loading, setLoading] = useState(true);
+
+  // Brief skeleton state so the grid eases in rather than popping.
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 650);
+    return () => clearTimeout(t);
+  }, []);
 
   const filtered =
     active === "all"
@@ -48,16 +56,24 @@ export default function ShopPage() {
         ))}
       </div>
 
-      <motion.div
-        layout
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
-        {filtered.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </motion.div>
+      {loading ? (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <ProductCardSkeleton key={i} />
+          ))}
+        </div>
+      ) : (
+        <motion.div
+          layout
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        >
+          {filtered.map((p, i) => (
+            <ProductCard key={p.id} product={p} index={i} />
+          ))}
+        </motion.div>
+      )}
 
-      {filtered.length === 0 && (
+      {!loading && filtered.length === 0 && (
         <p className="py-16 text-center text-white/50">
           No products in this category yet.
         </p>
