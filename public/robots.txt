@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://firelite-computers.vercel.app/sitemap.xml

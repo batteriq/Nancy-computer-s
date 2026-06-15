@@ -4,17 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { CheckCircle2, ShoppingBag } from "lucide-react";
-import { useCart } from "@/lib/cart-context";
+import { useCart, CartItem } from "@/lib/cart-context";
 import { formatKES } from "@/lib/products";
 import MpesaPayment, { isValidKenyanPhone } from "@/components/MpesaPayment";
+
+type CompletedOrder = {
+  order: string;
+  receipt?: string;
+  items: CartItem[];
+  total: number;
+};
 
 export default function CheckoutPage() {
   const { items, total, clear } = useCart();
   const [form, setForm] = useState({ name: "", phone: "", address: "" });
   const [touched, setTouched] = useState(false);
-  const [done, setDone] = useState<{ order: string; receipt?: string } | null>(
-    null
-  );
+  const [done, setDone] = useState<CompletedOrder | null>(null);
 
   const phoneValid = isValidKenyanPhone(form.phone);
   const formValid =
@@ -23,12 +28,15 @@ export default function CheckoutPage() {
     form.address.trim().length > 3;
 
   const orderNumber = useMemo(
-    () => "FL-" + Math.random().toString(36).slice(2, 8).toUpperCase(),
+    () =>
+      "FLC-2025-" +
+      String(Math.floor(Math.random() * 90000) + 10000).padStart(5, "0"),
     []
   );
 
   function handleSuccess(receipt?: string) {
-    setDone({ order: orderNumber, receipt });
+    // Snapshot the order before clearing the cart so we can show a summary.
+    setDone({ order: orderNumber, receipt, items: [...items], total });
     clear();
   }
 
@@ -54,6 +62,33 @@ export default function CheckoutPage() {
             </p>
           )}
         </div>
+
+        <div className="mt-6 w-full max-w-md rounded-2xl border border-white/10 bg-navy-light p-6 text-left">
+          <h3 className="mb-3 font-heading text-sm font-bold uppercase tracking-wide text-fire">
+            Order Summary
+          </h3>
+          <ul className="space-y-2">
+            {done.items.map((item) => (
+              <li
+                key={item.id}
+                className="flex justify-between gap-3 text-sm text-white/75"
+              >
+                <span>
+                  {item.name}{" "}
+                  <span className="text-white/40">× {item.qty}</span>
+                </span>
+                <span className="text-white">
+                  {formatKES(item.price * item.qty)}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-3 flex justify-between border-t border-white/10 pt-3 font-heading text-lg font-bold text-white">
+            <span>Total Paid</span>
+            <span className="text-electric">{formatKES(done.total)}</span>
+          </div>
+        </div>
+
         <p className="mt-6 text-sm text-white/60">
           We&apos;ll deliver to: {form.address}
         </p>

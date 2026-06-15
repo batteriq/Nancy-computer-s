@@ -27,6 +27,7 @@ export default function MpesaPayment({
   const [message, setMessage] = useState("");
   const [receipt, setReceipt] = useState<string>();
   const [seconds, setSeconds] = useState(0);
+  const [countdown, setCountdown] = useState(0);
   const [raw, setRaw] = useState<unknown>(null);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -75,6 +76,36 @@ export default function MpesaPayment({
       }
 
       const checkoutRequestId = data.checkoutRequestId as string;
+
+      // Demo/simulation path: short countdown then guaranteed success so the
+      // checkout flow is fully demoable when live Daraja isn't available.
+      if (data.simulated) {
+        setStatus("polling");
+        setMessage(
+          data.customerMessage ||
+            `STK Push sent to ${phone} — check your phone`
+        );
+        setCountdown(5);
+        timerRef.current = setInterval(() => {
+          setCountdown((c) => {
+            if (c <= 1) {
+              stopTimers();
+              const fakeReceipt =
+                "Q" +
+                Math.random().toString(36).slice(2, 8).toUpperCase() +
+                Math.floor(Math.random() * 90 + 10);
+              setReceipt(fakeReceipt);
+              setStatus("success");
+              setMessage("Payment received. Thank you!");
+              onSuccess?.(fakeReceipt);
+              return 0;
+            }
+            return c - 1;
+          });
+        }, 1000);
+        return;
+      }
+
       setStatus("polling");
       setMessage(
         data.customerMessage ||
@@ -196,7 +227,12 @@ export default function MpesaPayment({
           ) : null}
           <div>
             <p>{message}</p>
-            {status === "polling" && (
+            {status === "polling" && countdown > 0 && (
+              <p className="mt-1 text-xs text-white/50">
+                Confirming payment... {countdown}s
+              </p>
+            )}
+            {status === "polling" && countdown === 0 && (
               <p className="mt-1 text-xs text-white/50">
                 Waiting... {seconds}s elapsed
               </p>
