@@ -44,8 +44,51 @@ export default function CartDrawer() {
             <div className="flex-1 overflow-y-auto p-5">
               {items.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center text-center text-white/50">
-                  <ShoppingBag size={48} className="mb-4 opacity-40" />
-                  <p>Your cart is empty.</p>
+                  {/* Empty box illustration */}
+                  <svg
+                    width="120"
+                    height="120"
+                    viewBox="0 0 120 120"
+                    fill="none"
+                    aria-hidden="true"
+                    className="mb-5"
+                  >
+                    <path
+                      d="M20 44 L60 24 L100 44 L60 64 Z"
+                      stroke="#00D4FF"
+                      strokeWidth="2.5"
+                      strokeLinejoin="round"
+                      opacity="0.7"
+                    />
+                    <path
+                      d="M20 44 V84 L60 104 V64"
+                      stroke="#00D4FF"
+                      strokeWidth="2.5"
+                      strokeLinejoin="round"
+                      opacity="0.4"
+                    />
+                    <path
+                      d="M100 44 V84 L60 104"
+                      stroke="#00D4FF"
+                      strokeWidth="2.5"
+                      strokeLinejoin="round"
+                      opacity="0.4"
+                    />
+                    <line
+                      x1="40"
+                      y1="34"
+                      x2="80"
+                      y2="54"
+                      stroke="#FF6B00"
+                      strokeWidth="2"
+                      strokeDasharray="4 4"
+                      opacity="0.6"
+                    />
+                  </svg>
+                  <p className="font-semibold text-white/70">
+                    Your cart is empty.
+                  </p>
+                  <p className="mt-1 text-sm">Start shopping.</p>
                   <Link
                     href="/shop"
                     onClick={close}

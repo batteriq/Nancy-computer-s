@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://firelite-computers.vercel.app/sitemap.xml
+Sitemap: https://nancy-fire-computers.vercel.app/sitemap.xml

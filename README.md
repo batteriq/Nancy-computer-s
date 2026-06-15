@@ -1,7 +1,7 @@
-# Firelite Computers
+# Nancy Fire Computers
 
 Nairobi's #1 Gadget and Electronics Destination - a production-style prototype
-e-commerce site for **Firelite Computers**, built with Next.js 14, Tailwind CSS,
+e-commerce site for **Nancy Fire Computers**, built with Next.js 14, Tailwind CSS,
 Framer Motion and a live **M-Pesa Daraja (sandbox)** STK Push integration.
 
 ## Features
@@ -92,5 +92,5 @@ Add the same environment variables in the Vercel project settings, and point
 
 ---
 
-2025 Firelite Computers - Moi Avenue, Central Building, 1st Floor, Shop No. 10,
+2025 Nancy Fire Computers - Moi Avenue, Central Building, 1st Floor, Shop No. 10,
 Nairobi - 0740 949 022

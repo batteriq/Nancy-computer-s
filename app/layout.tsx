@@ -21,13 +21,13 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "Firelite Computers | Nairobi's #1 Gadget & Electronics Destination",
+  title: "Nancy Fire Computers | Nairobi's #1 Gadget & Electronics Destination",
   description:
-    "Firelite Computers - laptops, monitors, desktops and accessories at wholesale prices. Nationwide delivery across Kenya. Budget laptops from KES 10,000.",
+    "Nancy Fire Computers - laptops, monitors, desktops and accessories at wholesale prices. Nationwide delivery across Kenya. Budget laptops from KES 10,000.",
   keywords: [
     "laptops Nairobi",
     "cheap laptops Kenya",
-    "Firelite Computers",
+    "Nancy Fire Computers",
     "HP Dell Lenovo Kenya",
     "monitors Nairobi",
   ],
@@ -43,7 +43,7 @@ export default function RootLayout({
       <body>
         <CartProvider>
           <Navbar />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen pt-16">{children}</main>
           <Footer />
           <CartDrawer />
           <WhatsAppButton />

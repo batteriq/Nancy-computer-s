@@ -10,7 +10,7 @@ export default function Logo({ compact = false }: { compact?: boolean }) {
       />
       <span className="leading-none">
         <span className="block font-heading text-xl font-bold tracking-wider text-electric">
-          FIRELITE
+          NANCY FIRE
         </span>
         {!compact && (
           <span className="block font-heading text-[0.6rem] font-semibold tracking-[0.35em] text-fire">

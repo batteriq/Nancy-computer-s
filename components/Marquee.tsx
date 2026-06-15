@@ -1,12 +1,11 @@
 const deals = [
   "HP EliteBook Core i5 - KES 10,000",
   "Dell Latitude i7 - KES 25,500",
-  '24" Monitor - KES 8,000',
+  "24-inch Monitor - KES 8,000",
   "Lenovo ThinkPad i5 - KES 18,000",
-  "Wireless Keyboard & Mouse - KES 1,800",
-  "HP All-in-One Desktop - KES 32,000",
-  "Student Deals Available",
-  "Nationwide Delivery Across Kenya",
+  "Wireless Keyboard and Mouse - KES 1,800",
+  "Gaming Headset - KES 3,500",
+  "Nationwide Delivery Available",
 ];
 
 export default function Marquee() {

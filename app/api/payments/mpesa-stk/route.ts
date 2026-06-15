@@ -66,8 +66,8 @@ export async function POST(req: NextRequest) {
         PartyB: shortcode,
         PhoneNumber: msisdn,
         CallBackURL: process.env.MPESA_CALLBACK_URL,
-        AccountReference: reference || "Firelite Computers",
-        TransactionDesc: "Firelite Computers order",
+        AccountReference: reference || "Nancy Fire Computers",
+        TransactionDesc: "Nancy Fire Computers order",
       };
 
       const res = await fetch(`${MPESA_BASE}/mpesa/stkpush/v1/processrequest`, {

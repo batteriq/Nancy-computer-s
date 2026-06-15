@@ -10,9 +10,11 @@ import { useCart } from "@/lib/cart-context";
 export default function ProductCard({
   product,
   index = 0,
+  ribbon = false,
 }: {
   product: Product;
   index?: number;
+  ribbon?: boolean;
 }) {
   const { addItem } = useCart();
 
@@ -27,6 +29,12 @@ export default function ProductCard({
     >
       {/* Electric blue top border, revealed on hover */}
       <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-electric shadow-glow transition-transform duration-300 group-hover:scale-x-100" />
+
+      {ribbon && product.bestSeller && (
+        <span className="absolute right-3 top-3 z-10 rounded-full bg-fire px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-white shadow-glow-fire">
+          Best Seller
+        </span>
+      )}
 
       <Link
         href={`/shop/${product.slug}`}

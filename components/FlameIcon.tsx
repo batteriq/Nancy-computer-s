@@ -14,7 +14,7 @@ export default function FlameIcon({
       viewBox="0 0 48 48"
       fill="none"
       role="img"
-      aria-label="Firelite flame"
+      aria-label="Nancy Fire Computers flame"
       className={className}
     >
       <defs>
